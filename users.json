@@ -1,0 +1,46 @@
+[{
+	"firstName": "Elisabeth",
+	"lastName": "Janson",
+	"workplace": "Helsinki Hospital",
+	"city": "Helsinki",
+	"zip": "345678",
+	"country": "FI",
+	"profession": "doctor",
+	"speciality": "diabetes",
+	"email": null,
+	"phone": "0708866546",
+	"svnumber": "678906"
+},{
+	"firstName": "Erik",
+	"lastName": "Svensson",
+	"workplace": "Ryhov",
+	"city": "Jönköping",
+	"zip": "56243",
+	"country": "SV",
+	"profession": "nurse",
+	"speciality": "general",
+	"email": null,
+	"phone": "0786564534"
+},{
+	"firstName": "Alma",
+	"lastName": "Pedersen",
+	"workplace": "Copenhagen Hospital",
+	"city": "Copenhagen",
+	"zip": "4567",
+	"country": "DK",
+	"profession": "medical secretary",
+	"speciality": "general",
+	"email": null,
+	"phone": "0789567890"
+},{
+	"firstName": "Fredrik",
+	"lastName": "Hansson",
+	"workplace": "Biggest Hospital",
+	"city": "Jönköping",
+	"zip": "56233",
+	"country": "SV",
+	"profession": "boss",
+	"speciality": "all of them",
+	"email": null,
+	"phone": "0798767676"
+}]
