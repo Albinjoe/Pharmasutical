@@ -62,8 +62,8 @@ header {
 	position: relative;
 }
 
-.image-and-text-container + .image-and-text-container{
-	margin-top: 10px;
+.image-and-text-container{
+	margin-top: 15px;
 }
 
 .img-in-box{
@@ -90,7 +90,7 @@ body.modal-showing {
 }
 
 #site-container {
-	
+
 	margin: 0 auto;
 
 
@@ -334,4 +334,24 @@ label.not-exist:after {
 label.error .errormessage,
 label.exists .existsmessage {
 	max-height: 22px;
+}
+
+/*=====================================640PX=====================================*/
+@media (min-width: 640px) {
+			.image-and-text-container{
+					width:50%;
+					float: left;
+			}
+
+			.image-and-text-container:nth-child(2n+1){
+
+			}
+}
+
+/*=====================================960PX=====================================*/
+@media (min-width: 960px) {
+			.image-and-text-container{
+					width:33%;
+					float: left;
+			}
 }
