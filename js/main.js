@@ -1,9 +1,24 @@
-
 // just save all these different events in a string variable
 var transEnd = "transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd";
 
-// wait til the page is done loading, then do stuff
+
 $(document).ready(function() {
+
+function toggle_menu(){
+	if (menu.style.height == "100vh") {
+			menu.style.height = "0vh";
+	} else {
+		menu.style.height = "100vh";
+	};
+	var hamb = document.getElementById("hamb");
+	hamb.classList.toggle("rotationeffect");
+};
+
+
+
+
+
+
 
     // click to open modal
     $("a.open-modal").on("click", function(e) {
@@ -14,8 +29,8 @@ $(document).ready(function() {
 
         // START: ADD
         // wait to the animation of the modal opening to finish, then focus on something in the modal
-        $(".modal-container .modal").one(transEnd, function () { 
-            
+        $(".modal-container .modal").one(transEnd, function () {
+
             // get the first input-field or link, and put focus on it
             $(this).find("input, a").eq(0).trigger("focus");
             $(this).off(transEnd);
@@ -30,10 +45,10 @@ $(document).ready(function() {
 
         $("body").addClass("closing");
 
-        // this event happens when a transition-event on this element ends. 
-        // we could use a selector for #site-container or .modal-container as well 
+        // this event happens when a transition-event on this element ends.
+        // we could use a selector for #site-container or .modal-container as well
         // - just something we know is going to transition
-        $(".modal-container .modal").one(transEnd, function () { 
+        $(".modal-container .modal").one(transEnd, function () {
             $("body").removeClass("modal-showing closing");
             $(this).off(transEnd); // JS has no idea if the "end transition" is for when the modal opens or closes so make sure to remove the event-check again after it has run once
         });
@@ -57,7 +72,7 @@ $(document).ready(function() {
         // "hide" inputs from the tab order
         $(".students-only input, .students-only a").attr("tabindex", "-1");
         // END: ADD
-        
+
         // only show the student-only div again if "student" is the selected option
         if ( val == "student" ) {
             $(".students-only").addClass("show");
@@ -138,17 +153,17 @@ $(document).ready(function() {
 
     // Validate fields on BLUR IF they showed an error the first time (when trying to submit)
     $(document.body).on("blur", "label.error input[required]", function(e) {
-        
+
         // validate this one TEXT field
         validateField( $(this) );
     });
     $(document.body).on("change", "label.error select[required]", function(e) {
-        
+
         // validate this one selectbox
         validateField( $(this) );
     });
 
-    
+
     // check against existing email addresses
     $("#username").blur(function() {
         var val = $(this).val();

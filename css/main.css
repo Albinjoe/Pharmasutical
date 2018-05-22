@@ -13,12 +13,34 @@ html, body {
 }
 
 h1, h3 {
-	font-weight: 700;	
+	font-weight: 700;
 }
 p {
 	line-height: 1.5;
 }
 
+header {
+	height: 70px;
+	background-color: grey;
+	position: relative;
+}
+
+#hamburger{
+	width: 50px;
+	font-size: 2.5em;
+	position: absolute;
+	left: 20px;
+	top: 5px;
+}
+
+.profile-img {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+main{
+	padding: 11px 22px;
+}
 body.modal-showing {
 	overflow: hidden;
 }
@@ -26,10 +48,10 @@ body.modal-showing {
 #site-container {
 	max-width: 800px;
 	margin: 0 auto;
-	padding: 11px 22px;
 
-	/* The filter for blur HAS TO be 
-	1. on an element that the modal is not inside or the modal will blur too and 
+
+	/* The filter for blur HAS TO be
+	1. on an element that the modal is not inside or the modal will blur too and
 	2. it has to be on an element which contains all the content we want to blur*/
 
 	filter: blur(0px);
