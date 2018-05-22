@@ -21,8 +21,9 @@ p {
 
 header {
 	height: 70px;
-	background-color: grey;
+	background-color: white;
 	position: relative;
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 #hamburger{
@@ -56,6 +57,31 @@ header {
 .first-img{
 	width: 100%;
 }
+
+.image-and-text-container{
+	position: relative;
+}
+
+.image-and-text-container + .image-and-text-container{
+	margin-top: 10px;
+}
+
+.img-in-box{
+	width: 100%;
+}
+
+.img-text{
+	position: absolute;
+	bottom: 0;
+	background-color: white;
+	display: block;
+	width: 100%;
+	margin: 0;
+	opacity: 0.8;
+	padding: 10px;
+}
+
+
 main{
 	padding: 11px 22px;
 }
