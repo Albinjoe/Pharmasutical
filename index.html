@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A modal test</title>
+		<meta charset="utf-8" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+		<link href="css/main.css" type="text/css" rel="stylesheet" />
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/main.js"></script>
+	</head>
+	<body>
+		<div id="site-container">
+			<main>
+				<h1>This is a page with a modal window</h1>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+				<p>
+					<a href="#" class="button big open-modal">Show modal</a>
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+			</main>
+		</div>
+
+		<div class="modal-container">
+			<div class="modal">
+				<form novalidate="novalidate">
+					<label>
+						Name
+						<input type="text" name="Name" required="required" />
+						<div class="errormessage">
+							Please enter your name
+						</div>
+					</label>
+					<label>
+						Username (your email address)
+						<input type="email" name="Email" required="required" id="username" />
+						<div class="errormessage">
+							You need to supply a valid email address
+						</div>
+						<div class="existsmessage">
+							This username is already in use
+						</div>
+					</label>
+					<label class="select">
+						How will you use our products?
+						<select required="required" name="Something" id="iam">
+							<option>Select something</option>
+							<option value="student">As a student</option>
+							<option value="working">At work</option>
+						</select>
+						<div class="errormessage">
+							You need to tell us what you are
+						</div>
+					</label>
+					<div class="students-only">
+						<label>
+							Name of school
+							<input type="text" name="School" tabindex="-1" /><!-- NEW: tabindex -->
+						</label>
+						<label>
+							Which course is this for?
+							<input type="text" name="For" tabindex="-1" /><!-- NEW: tabindex -->
+						</label>
+						<!-- NEW -->
+						<a href="http://www.google.se" tabindex="-1" class="read-more">Read more about our courses</a>
+						<!-- NEW -->
+					</div>
+					<input type="submit" value="Send" />
+					<a href="#" class="button cancel secondary-button">Cancel</a>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
