@@ -33,10 +33,28 @@ header {
 	top: 5px;
 }
 
+.header-title{
+	margin: 0 auto;
+	padding: 0;
+	width: 135px;
+	padding-top: 25px;
+	font-size: 1em;
+}
+
 .profile-img {
 	position: absolute;
 	top: 20px;
 	right: 20px;
+}
+
+.magnifying-img{
+	position: absolute;
+	top: 20px;
+	right: 70px;
+}
+
+.first-img{
+	width: 100%;
 }
 main{
 	padding: 11px 22px;
