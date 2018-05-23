@@ -15,6 +15,8 @@ function toggle_menu(){
 	hamb.classList.toggle("rotationeffect");
 };
 
+        // moving to step 2
+
 		$(".SignUp").click(function(event){
 			$(".steps").addClass("moving-to-step2");
 		});
@@ -63,27 +65,39 @@ function toggle_menu(){
 
 
     // show/hide stuff based on if user is student or not
-    $("#iam").change( function() {
-        var val = $(this).find("option:selected").attr("value");
+   // $("#iam").change( function() {
+   //     var val = $(this).find("option:selected").attr("value");
 
         // hide the student-only div
-        $(".students-only").removeClass("show");
+     //   $(".students-only").removeClass("show");
 
         // START: ADD
         // "hide" inputs from the tab order
-        $(".students-only input, .students-only a").attr("tabindex", "-1");
+      //  $(".students-only input, .students-only a").attr("tabindex", "-1");
         // END: ADD
 
         // only show the student-only div again if "student" is the selected option
-        if ( val == "student" ) {
-            $(".students-only").addClass("show");
+     //   if ( val == "student" ) {
+    //        $(".students-only").addClass("show");
 
         // START: ADD
             // "show" inputs from the tab order
-            $(".students-only input, .students-only a").removeAttr("tabindex");
+     //       $(".students-only input, .students-only a").removeAttr("tabindex");
         // END: ADD
-        }
-    } );
+      //  }
+    //} );
+
+
+// moving to step 3
+
+    $(".continue").click(function(event){
+            $(".steps").removeClass("moving-to-step2").addClass("moving-to-step3");
+        });
+
+    $(".back").click(function(event){
+            $(".steps").removeClass("moving-to-step2").addClass("moving-to-step1");
+        });
+
 
     // form validation
     $("form").submit(function(e) {

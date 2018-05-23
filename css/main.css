@@ -227,8 +227,14 @@ body.modal-showing {
 		transform: translateX(0);
 		transition: transform 0.2s ease-out;
 	}
+	.steps.moving-to-step1{
+		transform: translateX(1%);
+	}
 	.steps.moving-to-step2 {
 		transform: translateX(-20%);
+	}
+	.steps.moving-to-step3 {
+		transform: translateX(-40%);
 	}
 
 
