@@ -22,7 +22,7 @@ function toggle_menu(){
 
 
     // click to open modal
-    $("a.open-modal").on("click", function(e) {
+    $(".open-modal").on("click", function(e) {
         e.preventDefault();
 
         // add lass to <body> = starting animations of modal opening

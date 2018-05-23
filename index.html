@@ -11,9 +11,24 @@
 	<body>
 		<div id="site-container">
 			<header>
-							<a href="#"><div id="hamburger" title="Menu">&#9776;</div></a>
+							<div id="hamburger" title="Menu">&#9776;</div>
 							<h1 class="header-title">Pharmasutical Inc</h1>
 							<a href="#" class="magnifying-img"><img src="img/magnifying-glass.png"/></a>
+							<div class="login-box">
+									<form class="header-form">
+											<label class="label-one">
+													Username
+													<input type="text" class="start-input"></input>
+											</label>
+											<label class="label-two">
+													Password
+													<input type="text" class="start-input"></input>
+											</label>
+											<input type="submit" value="Login"></input>
+									</form>
+									<p class="or">or</p>
+									<button class="sign-up open-modal">Sign Up</button>
+							</div>
 							<a href="#" class="open-modal profile-img"><img src="img/profile.png"/></a>
 			</header>
 			<img class="first-img" src="img/stor-bild.jpg"/>
@@ -63,14 +78,14 @@
 									<img class="profile" src="img/profile.png"/>
 									<form novalidate="novalidate">
 										<label>
-											Name
+											Username
 											<input type="text" name="Name" required="required" />
 											<div class="errormessage">
 												Please enter your name
 											</div>
 										</label>
 										<label>
-											Username (your email address)
+											Password
 											<input type="email" name="Email" required="required" id="username" />
 											<div class="errormessage">
 												You need to supply a valid email address
@@ -79,7 +94,7 @@
 												This username is already in use
 											</div>
 										</label>
-										<label class="select">
+										<!-- <label class="select">
 											How will you use our products?
 											<select required="required" name="Something" id="iam">
 												<option>Select something</option>
@@ -93,18 +108,18 @@
 										<div class="students-only">
 											<label>
 												Name of school
-												<input type="text" name="School" tabindex="-1" /><!-- NEW: tabindex -->
+												<input type="text" name="School" tabindex="-1" />
 											</label>
 											<label>
 												Which course is this for?
-												<input type="text" name="For" tabindex="-1" /><!-- NEW: tabindex -->
+												<input type="text" name="For" tabindex="-1" />
 											</label>
-											<!-- NEW -->
+
 											<a href="http://www.google.se" tabindex="-1" class="read-more">Read more about our courses</a>
-											<!-- NEW -->
-										</div>
-										<input type="submit" value="Send" />
-										<a href="#" class="SignUp">Sign Up</a>
+
+										</div> -->
+										<input type="submit" value="Login" />
+										<button class="SignUp">Sign Up</button>
 									</form>
 								</div>
 								<div class="step2">
