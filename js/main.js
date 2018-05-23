@@ -4,6 +4,7 @@ var transEnd = "transitionend webkitTransitionEnd oTransitionEnd otransitionend 
 
 $(document).ready(function() {
 
+
 function toggle_menu(){
 	if (menu.style.height == "100vh") {
 			menu.style.height = "0vh";
@@ -14,9 +15,9 @@ function toggle_menu(){
 	hamb.classList.toggle("rotationeffect");
 };
 
-
-
-
+		$(".SignUp").click(function(event){
+			$(".steps").addClass("moving-to-step2");
+		});
 
 
 
@@ -40,7 +41,7 @@ function toggle_menu(){
     });
 
     // click to close the modal
-    $(".modal-container, .modal a.button.cancel").on("click", function(e) {
+    $(".modal-container, .modal a.close").on("click", function(e) {
         e.preventDefault();
 
         $("body").addClass("closing");
@@ -100,6 +101,7 @@ function toggle_menu(){
 
                 // no!
                 postform = false;
+
             }
         });
 
