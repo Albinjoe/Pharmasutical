@@ -22,7 +22,6 @@ function toggle_menu(){
 		});
 
 
-
     // click to open modal
     $(".open-modal").on("click", function(e) {
         e.preventDefault();
@@ -39,6 +38,18 @@ function toggle_menu(){
             $(this).off(transEnd);
         });
         // END: ADD
+
+    });
+		//opens infosida
+		$('.info').on('click', function(){
+
+		        $('.infosida').toggle();
+
+		    });
+
+$('.closeinfo').on('click', function(){
+
+        $('.infosida').toggle();
 
     });
 
@@ -141,53 +152,53 @@ function toggle_menu(){
         });
 
 
-        // so what's the result of the POST???
-        if ( !postform ) {
-
-            // if any field wasn't validated, stop the POST of the form
-            e.preventDefault();
-
-        } else {
-
-            // the validation was successful! But.. still stop the submit of the form and do it via AJAX
-            e.preventDefault();
-
-            // send all variables from the form to register.json and wait for the response
-            // Note! this is a fake register-file for this example, woudn't work in real life
-            // The file-call, would have to have to have functionality in the back-end to handle the sign up
-
-            // save all data from the form fields into an array/json-object
-            var formData = form.serializeArray();
-
-            // call a json-file and include the form field data in the request
-            $.ajax({
-                url: "thank-you.html",
-                dataType: "html"
-            })
-
-            // function to execute if the AJAX-call succeeds
-            .done(function( data ) {
-
-                // weeeey, we got a response!
-                // now, save the html-as-atext-string inte a jQuery-object and exclude the markup we don't want
-                var thankYouMessage = $("<div></div>").html(data).find("#container");
-
-                // get this modal
-                var container = $(".modal");
-
-                // add the fetched Thank you-message to the modal
-                thankYouMessage.appendTo( container );
-
-            })
-
-            // function to execute if the AJAX-call fails
-            .fail(function( jqXHR, textStatus ) {
-
-                // there was an error of some sort, show the error in an alert
-                alert( "Request failed: " + textStatus );
-
-					  });
-        }
+        // // so what's the result of the POST???
+        // if ( !postform ) {
+        //
+        //     // if any field wasn't validated, stop the POST of the form
+        //     e.preventDefault();
+        //
+        // } else {
+        //
+        //     // the validation was successful! But.. still stop the submit of the form and do it via AJAX
+        //     e.preventDefault();
+        //
+        //     // send all variables from the form to register.json and wait for the response
+        //     // Note! this is a fake register-file for this example, woudn't work in real life
+        //     // The file-call, would have to have to have functionality in the back-end to handle the sign up
+        //
+        //     // save all data from the form fields into an array/json-object
+        //     var formData = form.serializeArray();
+        //
+        //     // call a json-file and include the form field data in the request
+        //     $.ajax({
+        //         url: "thank-you.html",
+        //         dataType: "html"
+        //     })
+        //
+        //     // function to execute if the AJAX-call succeeds
+        //     .done(function( data ) {
+        //
+        //         // weeeey, we got a response!
+        //         // now, save the html-as-atext-string inte a jQuery-object and exclude the markup we don't want
+        //         var thankYouMessage = $("<div></div>").html(data).find("#container");
+        //
+        //         // get this modal
+        //         var container = $(".modal");
+        //
+        //         // add the fetched Thank you-message to the modal
+        //         thankYouMessage.appendTo( container );
+        //
+        //     })
+        //
+        //     // function to execute if the AJAX-call fails
+        //     .fail(function( jqXHR, textStatus ) {
+        //
+        //         // there was an error of some sort, show the error in an alert
+        //         alert( "Request failed: " + textStatus );
+        //
+				// 	  });
+        // }
     });
 
 

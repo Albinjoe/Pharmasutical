@@ -6,6 +6,7 @@
 *, *:before, *:after {
 	box-sizing: border-box;
 }
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -228,7 +229,7 @@ body.modal-showing {
 		transition: transform 0.2s ease-out;
 	}
 	.steps.moving-to-step1{
-		transform: translateX(1%);
+		transform: translateX(0%);
 	}
 	.steps.moving-to-step2 {
 		transform: translateX(-20%);
@@ -252,11 +253,57 @@ body.modal-showing {
 
 	}
 
+
+
 	.step2 {
 		float: left;
 		width: 200px;
+		position: relative;
+
 
 	}
+
+	.info {
+		margin-right: 10px;
+		text-decoration: none;
+		float: left;
+		color: black;
+		display: inline;
+	}
+
+	div.infosida {
+		background-color: white;
+		opacity: 0.95;
+		width: 100%;
+		display: none;
+		height: 100%;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+
+	.meddelande {
+		background: lightgrey;
+		border-radius: 10px;
+		padding: 20px;
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	.closeinfo {
+		background: #000;
+		padding: 6px 15px;
+		color: #fff;
+		font-size: 12px;
+		display: inline-block;
+		margin-top: 28px;
+		line-height: normal;
+		text-transform: uppercase;
+		border-radius: 35px;
+		text-decoration: none;
+	}
+
+
 
 	.step3 {
 		float: left;
@@ -364,29 +411,7 @@ a.button.secondary-button {
 	float: right;
 }
 
-.info {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
 
-.info .infotext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-
-    /* Position the info */
-    position: absolute;
-    z-index: 1;
-}
-
-.info:hover .infotext {
-    visibility: visible;
-}
 
 /* Student specific fields */
 .students-only {
