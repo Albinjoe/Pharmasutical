@@ -237,6 +237,13 @@ body.modal-showing {
 		transform: translateX(-40%);
 	}
 
+	.steps.moving-to-step4 {
+		transform: translateX(-60%);
+	}
+
+	.steps.moving-to-step5 {
+		transform: translateX(-80%);
+	}
 
 	.step1 {
 		float: left;
@@ -355,6 +362,30 @@ input[type='submit'].secondary-button,
 a.button.secondary-button {
 	padding: 9px 10px;
 	float: right;
+}
+
+.info {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.info .infotext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the info */
+    position: absolute;
+    z-index: 1;
+}
+
+.info:hover .infotext {
+    visibility: visible;
 }
 
 /* Student specific fields */
@@ -517,6 +548,15 @@ label.exists .existsmessage {
 			}
 			.steps.moving-to-step2 {
 				transform: translateX(-20%);
+			}
+			.steps.moving-to-step3 {
+				transform: translateX(-40%);
+			}
+			.steps.moving-to-step4 {
+				transform: translateX(-60%);
+			}
+			.steps.moving-to-step5 {
+				transform: translateX(-80%);
 			}
 
 			.step1 {

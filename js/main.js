@@ -98,6 +98,27 @@ function toggle_menu(){
             $(".steps").removeClass("moving-to-step2").addClass("moving-to-step1");
         });
 
+// moving to step 4
+
+				$(".continue2").click(function(event){
+								$(".steps").removeClass("moving-to-step3").addClass("moving-to-step4");
+						});
+
+				$(".back2").click(function(event){
+								$(".steps").removeClass("moving-to-step3").addClass("moving-to-step2");
+						});
+
+// moving to step 5
+
+						$(".continue3").click(function(event){
+										$(".steps").removeClass("moving-to-step4").addClass("moving-to-step5");
+								});
+
+						$(".back3").click(function(event){
+										$(".steps").removeClass("moving-to-step4").addClass("moving-to-step3");
+								});
+
+
 
     // form validation
     $("form").submit(function(e) {
@@ -118,6 +139,7 @@ function toggle_menu(){
 
             }
         });
+
 
         // so what's the result of the POST???
         if ( !postform ) {
@@ -163,9 +185,12 @@ function toggle_menu(){
 
                 // there was an error of some sort, show the error in an alert
                 alert( "Request failed: " + textStatus );
-            });
+
+					  });
         }
     });
+
+
 
     // Validate fields on BLUR IF they showed an error the first time (when trying to submit)
     $(document.body).on("blur", "label.error input[required]", function(e) {
@@ -178,7 +203,6 @@ function toggle_menu(){
         // validate this one selectbox
         validateField( $(this) );
     });
-
 
     // check against existing email addresses
     $("#username").blur(function() {
@@ -220,8 +244,8 @@ function toggle_menu(){
             field.closest("label").addClass("error");
         }
     });
-
 });
+
 
 function validateField( field ) {
 
@@ -257,6 +281,7 @@ function validateField( field ) {
 
     return valid;
 }
+
 
 // function to check if email has correct syntax (using regex)
 function validateEmail(email) {
