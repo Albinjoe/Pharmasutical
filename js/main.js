@@ -109,6 +109,19 @@ $('.closeinfo').on('click', function(){
             $(".steps").removeClass("moving-to-step2").addClass("moving-to-step1");
         });
 
+
+				$('.startload').on('click', function(){
+
+				        $('.loadsida').toggle();
+
+				    });
+
+		$('.closeload').on('click', function(){
+
+		        $('.loadsida').toggle();
+
+		    });
+
 // moving to step 4
 
 				$(".continue2").click(function(event){
