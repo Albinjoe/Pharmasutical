@@ -4,19 +4,9 @@ var transEnd = "transitionend webkitTransitionEnd oTransitionEnd otransitionend 
 
 $(document).ready(function() {
 
+			// Good to have for some responsive functionality
+				var WindowWidth = $(window).width();
 
-// function toggle_menu(){
-// 	if (menu.style.height == "100vh") {
-// 			menu.style.height = "0vh";
-// 	} else {
-// 		menu.style.height = "100vh";
-// 	};
-// 	var hamb = document.getElementById("hamb");
-// 	hamb.classList.toggle("rotationeffect");
-// };
-
-	var WindowWidth = $(window).width();
-	
 		    if(WindowWidth > 640) {
 		        $('.steps').addClass("moving-to-step2");
 				}else{
@@ -29,13 +19,16 @@ $(document).ready(function() {
 			event.preventDefault();
 			$(".steps").addClass("moving-to-step2");
 			$(".progress-bar").css("display", "block");
-
+			$(".nr-one").css("background-color", "#fff89d");
 		});
-
 
     // click to open modal
     $(".open-modal").on("click", function(e) {
         e.preventDefault();
+				if(WindowWidth > 640) {
+		        $(".progress-bar").css("display", "block");
+				}
+
         // add lass to <body> = starting animations of modal opening
         $("body").addClass("modal-showing");
 
@@ -48,8 +41,15 @@ $(document).ready(function() {
             $(this).off(transEnd);
         });
         // END: ADD
-
     });
+
+		if ($(".steps").hasClass("moving-to-step2")) {
+				$(".nr-one").css("background-color", "#fff89d");
+		}
+		$('.continue').on('click', function(){
+						$(".nr-one").css("background-color", "#26ad8f");
+						$(".nr-two").css("background-color", "#fff89d");
+		});
 		//opens infosida
 		$('.info').on('click', function(){
 		        $('.infosida').toggle();
@@ -82,157 +82,68 @@ $(document).ready(function() {
         e.stopPropagation();
     });
 
-
-    // show/hide stuff based on if user is student or not
-   // $("#iam").change( function() {
-   //     var val = $(this).find("option:selected").attr("value");
-
-        // hide the student-only div
-     //   $(".students-only").removeClass("show");
-
-        // START: ADD
-        // "hide" inputs from the tab order
-      //  $(".students-only input, .students-only a").attr("tabindex", "-1");
-        // END: ADD
-
-        // only show the student-only div again if "student" is the selected option
-     //   if ( val == "student" ) {
-    //        $(".students-only").addClass("show");
-
-        // START: ADD
-            // "show" inputs from the tab order
-     //       $(".students-only input, .students-only a").removeAttr("tabindex");
-        // END: ADD
-      //  }
-    //} );
-
-
 // moving to step 3
 
-    $(".continue").click(function(event){
-            $(".steps").removeClass("moving-to-step2").addClass("moving-to-step3");
-        });
+		    $(".continue").click(function(event){
+		            $(".steps").removeClass("moving-to-step2").addClass("moving-to-step3");
+		    });
 
-    $(".back").click(function(event){
-            $(".steps").removeClass("moving-to-step2").addClass("moving-to-step1");
-						$(".progress-bar").css("display", "none");
-        });
-
+		    $(".back").click(function(event){
+		            $(".steps").removeClass("moving-to-step2").addClass("moving-to-step1");
+								$(".progress-bar").css("display", "none");
+		    });
 
 				$('.startload').on('click', function(){
+						    $('.loadsida').toggle();
+				});
 
+				$('.closeload').on('click', function(){
 				        $('.loadsida').toggle();
-
-				    });
-
-		$('.closeload').on('click', function(){
-
-		        $('.loadsida').toggle();
-
-		    });
+				});
 
 // moving to step 4
 
 				$(".continue2").click(function(event){
 								$(".steps").removeClass("moving-to-step3").addClass("moving-to-step4");
-						});
+				});
 
 				$(".back2").click(function(event){
 								$(".steps").removeClass("moving-to-step3").addClass("moving-to-step2");
-						});
+								$(".nr-one").css("background-color", "#fff89d");
+								$(".nr-two").css("background-color", "lightgrey");
+				});
 
 // moving to step 5
 
-						$(".continue3").click(function(event){
-										$(".steps").removeClass("moving-to-step4").addClass("moving-to-step5");
-								});
+				$(".continue3").click(function(event){
+								$(".steps").removeClass("moving-to-step4").addClass("moving-to-step5");
+				});
 
-						$(".back3").click(function(event){
-										$(".steps").removeClass("moving-to-step4").addClass("moving-to-step3");
-								});
-
+				$(".back3").click(function(event){
+								$(".steps").removeClass("moving-to-step4").addClass("moving-to-step3");
+				});
 
 
     // form validation
-    $("form").submit(function(e) {
-        var form = $(this);
-        var postform = true;
-        var fields = $(this).find("*[required]");;
 
-        // alright, go through the fields one by one
-        fields.each(function() {
-
-            var valid = validateField( $(this) );
-
-            // was the field validated?
-            if ( !valid ) {
-
-                // no!
-                postform = false;
-
+		$(".occupation-form").submit(function(e) {
+				e.preventDefault();
+				var option = $('#selOption');
+            if (option.val() === '') {
+                alert("Please select an item from the list and then proceed!");
+                $('#selBooks').focus();
+                return false;
             }
-        });
-
-
-        // // so what's the result of the POST???
-        // if ( !postform ) {
-        //
-        //     // if any field wasn't validated, stop the POST of the form
-        //     e.preventDefault();
-        //
-        // } else {
-        //
-        //     // the validation was successful! But.. still stop the submit of the form and do it via AJAX
-        //     e.preventDefault();
-        //
-        //     // send all variables from the form to register.json and wait for the response
-        //     // Note! this is a fake register-file for this example, woudn't work in real life
-        //     // The file-call, would have to have to have functionality in the back-end to handle the sign up
-        //
-        //     // save all data from the form fields into an array/json-object
-        //     var formData = form.serializeArray();
-        //
-        //     // call a json-file and include the form field data in the request
-        //     $.ajax({
-        //         url: "thank-you.html",
-        //         dataType: "html"
-        //     })
-        //
-        //     // function to execute if the AJAX-call succeeds
-        //     .done(function( data ) {
-        //
-        //         // weeeey, we got a response!
-        //         // now, save the html-as-atext-string inte a jQuery-object and exclude the markup we don't want
-        //         var thankYouMessage = $("<div></div>").html(data).find("#container");
-        //
-        //         // get this modal
-        //         var container = $(".modal");
-        //
-        //         // add the fetched Thank you-message to the modal
-        //         thankYouMessage.appendTo( container );
-        //
-        //     })
-        //
-        //     // function to execute if the AJAX-call fails
-        //     .fail(function( jqXHR, textStatus ) {
-        //
-        //         // there was an error of some sort, show the error in an alert
-        //         alert( "Request failed: " + textStatus );
-        //
-				// 	  });
-        // }
-    });
+		});
 
 
 
     // Validate fields on BLUR IF they showed an error the first time (when trying to submit)
     $(document.body).on("blur", "label.error input[required]", function(e) {
-
         // validate this one TEXT field
         validateField( $(this) );
     });
     $(document.body).on("change", "label.error select[required]", function(e) {
-
         // validate this one selectbox
         validateField( $(this) );
     });

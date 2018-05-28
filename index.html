@@ -18,11 +18,11 @@
 									<form class="header-form">
 											<label class="label-one">
 													Username
-													<input type="text" class="start-input"></input>
+													<input type="text" class="start-input" required="required" id="username"></input>
 											</label>
 											<label class="label-two">
 													Password
-													<input type="text" class="start-input"></input>
+													<input type="password" class="start-input" required="required" id="password"></input>
 											</label>
 											<input type="submit" value="Login"></input>
 									</form>
@@ -107,23 +107,24 @@
 										</form>
 								</div>
 								<div class="step2">
-										<label class="select">
-												Choose your occupation
-												<select name="Something" id="iam" required="required">
-														<option value="">Select something</option>
-														<option value="doctor">Doctor (senior specialist)</option>
-														<option value="nurse">Nurse</option>
-														<option value="dietist">Dietist</option>
-														<option value="medical-sec">Medical secretary</option>
-												</select>
-												<div class="errormessage">
-														You need to tell us what you are
-												</div>
-										</label>
-										<a href="#" class="info"><div>&#9432;</div></a>
-										<button class="back">back</button>
-										<input type="submit" value="continue" class="continue" />
-
+									<form class="occupation-form">
+											<label class="select">
+													Choose your occupation
+													<select name="Something" id="iam" required="required">
+															<option value="" disabled selected="selected">Select occupation</option>
+															<option value="doctor">Doctor (senior specialist)</option>
+															<option value="nurse">Nurse</option>
+															<option value="dietist">Dietist</option>
+															<option value="medical-sec">Medical secretary</option>
+													</select>
+													<div class="errormessage">
+															You need to tell us what you are
+													</div>
+											</label>
+											<a href="#" class="info"><div>&#9432;</div></a>
+											<button class="back">back</button>
+											<input type="submit" value="continue" class="continue" />
+									</form>
 										<div class="infosida">
 												<div class="meddelande">
 														<h2>Information</h2>
