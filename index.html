@@ -3,6 +3,7 @@
 	<head>
 		<title>Pharmasutical Inc</title>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
 		<link href="css/main.css" type="text/css" rel="stylesheet" />
         <script src="js/jquery-3.2.1.min.js"></script>
@@ -110,7 +111,7 @@
 									<form class="occupation-form">
 											<label class="select">
 													Choose your occupation
-													<select name="Something" id="iam" required="required">
+													<select name="Something" id="iam selOption" required="required">
 															<option value="" disabled selected="selected">Select occupation</option>
 															<option value="doctor">Doctor (senior specialist)</option>
 															<option value="nurse">Nurse</option>
@@ -149,7 +150,7 @@
 
 								<div class="step3">
 									<p>Validation, step 3 </p>
-									<form class="step3validate">
+									<form class="step3validate" novalidate="novalidate">
 										<label>
 											First name
 											<input type="text" name="Name" required="required" />
@@ -171,9 +172,9 @@
 												Please enter your SV-Number
 											</div>
 										</label>
+										<button class="back2">back</button>
+										<input type="submit" value="continue" class="startload" />
 									</form>
-									<button class="back2">back</button>
-									<input type="submit" value="continue" class="startload" />
 								</div>
 
 									<div class="step4">
@@ -185,13 +186,36 @@
 												<a href="#" class="closeload"><div>Okej I got it!</div></a>
 											</div>
 										</div>
-										<button class="back3">back</button>
-										<input type="submit" value="continue" class="continue3" />
 									</div>
 
-								<div class="step5">
-									<p>hejsan5</p>
-								</div>
+									<div class="step5">
+										<p>Registration</p>
+										<form class="step5validate" novalidate="novalidate">
+											<label>
+												Username (Workemail)
+												<input type="text" name="Username" required="required" />
+												<div class="errormessage">
+													Please enter your work email.
+												</div>
+											</label>
+											<label>
+													Password
+												<input type="password" name="Password" required="required" />
+												<div class="errormessage">
+													Please enter a password.
+												</div>
+											</label>
+											<label>
+												Confirm password
+												<input type="password" name="Password" required="required" />
+												<div class="errormessage">
+													Please type the same password as above
+												</div>
+											</label>
+											<button class="back3">back</button>
+											<input type="submit" value="continue" />
+										</form>
+									</div>
 					</div>
 				</div>
 			</div>

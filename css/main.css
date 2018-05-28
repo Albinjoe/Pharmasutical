@@ -217,7 +217,7 @@ body.modal-showing {
 
 	.progress-bar{
 		margin: 0 auto;
-		width: 291px;
+		width: 231px;
 		margin-top: 20px;
 		margin-bottom: 30px;
 		display: none;
@@ -226,7 +226,7 @@ body.modal-showing {
 	.block{
 		width: 20px;
 		display: inline;
-		padding: 1px 23px;
+		padding: 1px 17px;
 		background-color: lightgrey;
 	}
 
@@ -272,17 +272,12 @@ body.modal-showing {
 		float: left;
 		width: 200px;
 		text-align: center;
-
 	}
-
-
 
 	.step2 {
 		float: left;
 		width: 200px;
 		position: relative;
-
-
 	}
 
 	.info {
@@ -324,8 +319,6 @@ body.modal-showing {
 		border-radius: 35px;
 		text-decoration: none;
 	}
-
-
 
 	.step3 {
 		float: left;
@@ -702,6 +695,15 @@ label.exists .existsmessage {
 				text-align: left;
 			}
 
+			/*  Progress-bar  */
+
+			.progress-bar{
+				width: 291px;
+			}
+
+			.block{
+				padding: 1px 23px;
+			}
 
 }
 

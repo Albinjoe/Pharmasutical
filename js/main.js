@@ -46,10 +46,6 @@ $(document).ready(function() {
 		if ($(".steps").hasClass("moving-to-step2")) {
 				$(".nr-one").css("background-color", "#fff89d");
 		}
-		$('.continue').on('click', function(){
-						$(".nr-one").css("background-color", "#26ad8f");
-						$(".nr-two").css("background-color", "#fff89d");
-		});
 		//opens infosida
 		$('.info').on('click', function(){
 		        $('.infosida').toggle();
@@ -82,11 +78,25 @@ $(document).ready(function() {
         e.stopPropagation();
     });
 
-// moving to step 3
 
-		    $(".continue").click(function(event){
-		            $(".steps").removeClass("moving-to-step2").addClass("moving-to-step3");
-		    });
+		    // form validation
+
+				$(".occupation-form").submit(function(e) {
+						e.preventDefault();
+						var option = $('#selOption');
+		            if (option.val() === '') {
+		                alert("Please select an item from the list and then proceed!");
+		                $('#selBooks').focus();
+		                return false;
+		            }
+		            else{
+									$(".steps").removeClass("moving-to-step2").addClass("moving-to-step3");
+									$(".nr-one").css("background-color", "#26ad8f");
+									$(".nr-two").css("background-color", "#fff89d");
+								}
+				});
+
+// moving to step 3
 
 		    $(".back").click(function(event){
 		            $(".steps").removeClass("moving-to-step2").addClass("moving-to-step1");
@@ -99,6 +109,7 @@ $(document).ready(function() {
 
 				$('.closeload').on('click', function(){
 				        $('.loadsida').toggle();
+								$(".steps").removeClass("moving-to-step3").addClass("moving-to-step4");
 				});
 
 // moving to step 4
@@ -124,17 +135,6 @@ $(document).ready(function() {
 				});
 
 
-    // form validation
-
-		$(".occupation-form").submit(function(e) {
-				e.preventDefault();
-				var option = $('#selOption');
-            if (option.val() === '') {
-                alert("Please select an item from the list and then proceed!");
-                $('#selBooks').focus();
-                return false;
-            }
-		});
 
 
 
