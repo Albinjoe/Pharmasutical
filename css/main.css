@@ -127,6 +127,10 @@ body.modal-showing {
 
 .close {
 	float: right;
+
+}
+.close img {
+	width: 20px;
 }
 
 .button {
@@ -149,7 +153,7 @@ body.modal-showing {
 .button.secondary-button {
 	color: #000;
 	background-color: #fff;
-	border: solid 1px #000;
+
 }
 
 .modal-container {
@@ -209,6 +213,23 @@ body.modal-showing {
 			   	   /*rotateX(60deg);*/
 	}
 
+	/*------------ Progress bar below -------------*/
+
+	.progress-bar{
+		margin: 0 auto;
+		width: 291px;
+		margin-top: 20px;
+		margin-bottom: 30px;
+		display: none;
+	}
+
+	.block{
+		width: 20px;
+		display: inline;
+		padding: 1px 23px;
+		background-color: lightgrey;
+	}
+	/*--------------------------------------------*/
 
 	/*  steps   */
 
@@ -308,13 +329,23 @@ body.modal-showing {
 	.step3 {
 		float: left;
 		width: 200px;
+	}
 
+	.step3 p{
+		margin-top:0;
 	}
 
 	.continue2 {
 		margin-right: 10px;
 		text-decoration: none;
-		float: left;
+		float: right;
+		color: black;
+		display: inline;
+	}
+	.continue {
+		margin-right: 10px;
+		text-decoration: none;
+		float: right;
 		color: black;
 		display: inline;
 	}
@@ -401,7 +432,7 @@ input {
 input[type='text'],
 input[type='email'],
 select {
-	background-color: #fff;
+	background-color: #26ad8f;
 	border: solid 1px #ddd;
 	-webkit-box-shadow: 0 0 0px 1000px white inset;
 	border-radius: 4px;
@@ -424,7 +455,7 @@ select {
 /* Buttons */
 input[type='submit'],
 a.button {
-	background: #000;
+	background: #26ad8f;
 	padding: 6px 15px;
 	color: #fff;
 	font-size: 12px;
@@ -444,6 +475,16 @@ button {
 	line-height: normal;
 	text-transform: uppercase;
 	border-radius: 35px;
+}
+
+button.back {
+	float: left;
+	clear: both;
+	background-color: none !important;
+	border: 1px solid #26ad8f;
+}
+.startload{
+	float: right;
 }
 input[type='submit'].secondary-button,
 a.button.secondary-button {
@@ -578,6 +619,7 @@ label.exists .existsmessage {
 			}
 			.sign-up{
 				display: inline-block;
+				border: none;
 			}
 
 			.profile-img{

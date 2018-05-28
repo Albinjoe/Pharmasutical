@@ -5,27 +5,37 @@ var transEnd = "transitionend webkitTransitionEnd oTransitionEnd otransitionend 
 $(document).ready(function() {
 
 
-function toggle_menu(){
-	if (menu.style.height == "100vh") {
-			menu.style.height = "0vh";
-	} else {
-		menu.style.height = "100vh";
-	};
-	var hamb = document.getElementById("hamb");
-	hamb.classList.toggle("rotationeffect");
-};
+// function toggle_menu(){
+// 	if (menu.style.height == "100vh") {
+// 			menu.style.height = "0vh";
+// 	} else {
+// 		menu.style.height = "100vh";
+// 	};
+// 	var hamb = document.getElementById("hamb");
+// 	hamb.classList.toggle("rotationeffect");
+// };
+
+	var WindowWidth = $(window).width();
+	
+		    if(WindowWidth > 640) {
+		        $('.steps').addClass("moving-to-step2");
+				}else{
+		        $('.steps').removeClass("moving-to-step2");
+				}
 
         // moving to step 2
 
 		$(".SignUp").click(function(event){
+			event.preventDefault();
 			$(".steps").addClass("moving-to-step2");
+			$(".progress-bar").css("display", "block");
+
 		});
 
 
     // click to open modal
     $(".open-modal").on("click", function(e) {
         e.preventDefault();
-
         // add lass to <body> = starting animations of modal opening
         $("body").addClass("modal-showing");
 
@@ -42,15 +52,11 @@ function toggle_menu(){
     });
 		//opens infosida
 		$('.info').on('click', function(){
-
 		        $('.infosida').toggle();
+		});
 
-		    });
-
-$('.closeinfo').on('click', function(){
-
-        $('.infosida').toggle();
-
+		$('.closeinfo').on('click', function(){
+        	$('.infosida').toggle();
     });
 
     // click to close the modal
@@ -63,6 +69,8 @@ $('.closeinfo').on('click', function(){
         // we could use a selector for #site-container or .modal-container as well
         // - just something we know is going to transition
         $(".modal-container .modal").one(transEnd, function () {
+
+					$(".steps").removeClass("moving-to-step2 moving-to-step3 moving-to-step4"); //Removes all the "step-classes" when closing the modal.
             $("body").removeClass("modal-showing closing");
             $(this).off(transEnd); // JS has no idea if the "end transition" is for when the modal opens or closes so make sure to remove the event-check again after it has run once
         });
@@ -107,6 +115,7 @@ $('.closeinfo').on('click', function(){
 
     $(".back").click(function(event){
             $(".steps").removeClass("moving-to-step2").addClass("moving-to-step1");
+						$(".progress-bar").css("display", "none");
         });
 
 

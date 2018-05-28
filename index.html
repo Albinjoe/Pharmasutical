@@ -71,60 +71,67 @@
 
 		<div class="modal-container">
 			<div class="modal">
-				<a href="#" class="close"><img src="img/close.png" width="20" /></a>
+				<a href="#" class="close"><img src="img/close.png"/></a>
+				<div class="progress-bar">
+						<div class="block nr-one">1</div>
+						<div class="block nr-two">2</div>
+						<div class="block nr-three">3</div>
+						<div class="block nr-four">4</div>
+						<div class="block nr-five">5</div>
+				</div>
 				<div class="step">
 					<div class="steps">
 								<div class="step1">
-									<img class="profile" src="img/profile.png"/>
-									<form novalidate="novalidate">
-										<label>
-											Username
-											<input type="text" name="Name" required="required" />
-											<div class="errormessage">
-												Please enter your name
-											</div>
-										</label>
-										<label>
-											Password
-											<input type="email" name="Email" required="required" id="username" />
-											<div class="errormessage">
-												You need to supply a valid email address
-											</div>
-											<div class="existsmessage">
-												This username is already in use
-											</div>
-										</label>
+										<img class="profile" src="img/profile.png"/>
+										<form novalidate="novalidate">
+												<label>
+														Username
+														<input type="text" name="Name" required="required" />
+														<div class="errormessage">
+																Please enter your name
+														</div>
+												</label>
+												<label>
+														Password
+														<input type="email" name="Email" required="required" id="username" />
+														<div class="errormessage">
+																You need to supply a valid email address
+														</div>
+														<div class="existsmessage">
+																This username is already in use
+														</div>
+												</label>
 
-										<input type="submit" value="Login" />
-										<button class="SignUp">Sign Up</button>
-									</form>
+												<input type="submit" value="Login" />
+												<button class="SignUp">Sign Up</button>
+										</form>
 								</div>
 								<div class="step2">
 										<label class="select">
-											Choose your occupation
-											<select name="Something" id="iam" required="required">
-												<option value="">Select something</option>
-												<option value="doctor">Doctor (senior specialist)</option>
-												<option value="nurse">Nurse</option>
-												<option value="dietist">Dietist</option>
-												<option value="medical-sec">Medical secretary</option>
-											</select>
-											<div class="errormessage">
-												You need to tell us what you are
-											</div>
+												Choose your occupation
+												<select name="Something" id="iam" required="required">
+														<option value="">Select something</option>
+														<option value="doctor">Doctor (senior specialist)</option>
+														<option value="nurse">Nurse</option>
+														<option value="dietist">Dietist</option>
+														<option value="medical-sec">Medical secretary</option>
+												</select>
+												<div class="errormessage">
+														You need to tell us what you are
+												</div>
 										</label>
 										<a href="#" class="info"><div>&#9432;</div></a>
-										<input type="submit" value="back" class="back" />
+										<button class="back">back</button>
 										<input type="submit" value="continue" class="continue" />
 
 										<div class="infosida">
-											<div class="meddelande">
-												<h2>Information</h2>
-												<p> sdnfslj sdkfs djkfjg sigjsigj sjfgn fdg gshgj</p>
-												<a href="#" class="closeinfo"><div>Okej I got it!</div></a>
-											</div>
+												<div class="meddelande">
+														<h2>Information</h2>
+														<p> sdnfslj sdkfs djkfjg sigjsigj sjfgn fdg gshgj</p>
+														<a href="#" class="closeinfo"><div>Okej I got it!</div></a>
+												</div>
 										</div>
-										</div>
+								</div>
 
 										<!--<div class="students-only">
 											<label>
@@ -164,7 +171,7 @@
 											</div>
 										</label>
 									</form>
-									<input type="submit" value="back" class="back2" />
+									<button class="back2">back</button>
 									<input type="submit" value="continue" class="startload" />
 								</div>
 
@@ -177,7 +184,7 @@
 												<a href="#" class="closeload"><div>Okej I got it!</div></a>
 											</div>
 										</div>
-										<input type="submit" value="back" class="back3" />
+										<button class="back3">back</button>
 										<input type="submit" value="continue" class="continue3" />
 									</div>
 
