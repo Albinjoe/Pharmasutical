@@ -113,6 +113,8 @@ $(document).ready(function() {
 				$('.closeload').on('click', function(){
 				        $('.loadsida').toggle();
 								$(".steps").removeClass("moving-to-step3").addClass("moving-to-step4");
+								$(".nr-two").css("background-color", "#26ad8f");
+								$(".nr-three").css("background-color", "#fff89d");
 				});
 
 // moving to step 4
@@ -135,6 +137,8 @@ $(document).ready(function() {
 
 				$(".back3").click(function(event){
 								$(".steps").removeClass("moving-to-step4").addClass("moving-to-step3");
+								$(".nr-two").css("background-color", "#fff89d");
+								$(".nr-three").css("background-color", "lightgrey");
 				});
 
 
