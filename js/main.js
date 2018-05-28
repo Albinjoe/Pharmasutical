@@ -81,7 +81,7 @@ $(document).ready(function() {
 
 		    // form validation
 
-				$(".occupation-form").submit(function(e) {
+				$(".step2validate").submit(function(e) {
 						e.preventDefault();
 						var option = $('#selOption');
 		            if (option.val() === '') {
@@ -94,6 +94,9 @@ $(document).ready(function() {
 									$(".nr-one").css("background-color", "#26ad8f");
 									$(".nr-two").css("background-color", "#fff89d");
 								}
+				});
+				$(".step3validate").submit(function(e) {
+						e.preventDefault();
 				});
 
 // moving to step 3
