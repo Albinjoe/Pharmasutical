@@ -246,26 +246,24 @@ body.modal-showing {
 	}
 
 	.steps {
-		width: 1000px;
+		width: 1200px;
 		transform: translateX(0);
 		transition: transform 0.2s ease-out;
 	}
-	.steps.moving-to-step1{
-		transform: translateX(0%);
-	}
 	.steps.moving-to-step2 {
-		transform: translateX(-20%);
+		transform: translateX(-16.66667%);
 	}
 	.steps.moving-to-step3 {
-		transform: translateX(-40%);
+		transform: translateX(-33.33333%);
 	}
-
 	.steps.moving-to-step4 {
-		transform: translateX(-60%);
+		transform: translateX(-50%);
 	}
-
 	.steps.moving-to-step5 {
-		transform: translateX(-80%);
+		transform: translateX(-66.66667%);
+	}
+	.steps.moving-to-step6 {
+		transform: translateX(-83.333333%);
 	}
 
 	.step1 {
@@ -352,7 +350,7 @@ body.modal-showing {
 		height: 100%;
 		position: absolute;
 		top: 0px;
-		left: 0px;
+		left: -100px;
 	}
 
 	.gif {
@@ -379,13 +377,23 @@ body.modal-showing {
 	.step4 {
 		float: left;
 		width: 200px;
-
 	}
 
 	.step5 {
 		float: left;
 		width: 200px;
+	}
 
+	.step5 p{
+		margin-top: 0px;
+	}
+	.step6 {
+		float: left;
+		width: 200px;
+	}
+	.step7 {
+		float: left;
+		width: 200px;
 	}
 
 
@@ -645,48 +653,43 @@ label.exists .existsmessage {
 			}
 
 			.steps {
-				width: 2000px;
+				width: 2400px;
 				transform: translateX(0);
 				transition: transform 0.2s ease-out;
 			}
-			.steps.moving-to-step2 {
-				transform: translateX(-20%);
-			}
-			.steps.moving-to-step3 {
-				transform: translateX(-40%);
-			}
-			.steps.moving-to-step4 {
-				transform: translateX(-60%);
-			}
-			.steps.moving-to-step5 {
-				transform: translateX(-80%);
-			}
 
 			.step1 {
-				float: left;
 				width: 400px;
 				text-align: center;
 			}
 
 			.step2 {
-				float: left;
 				width: 400px;
 			}
 
 			.step3 {
-				float: left;
 				width: 400px;
 			}
 
 			.step4 {
-				float: left;
 				width: 400px;
 			}
 
 			.step5 {
-				float: left;
 				width: 400px;
 				text-align: center;
+			}
+			.step6 {
+				width: 400px;
+				text-align: center;
+			}
+			.step7 {
+				width: 400px;
+				text-align: center;
+			}
+
+			div.loadsida {
+				left: -200px;
 			}
 
 			/*  LABELS  */

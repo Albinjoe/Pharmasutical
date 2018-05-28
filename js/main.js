@@ -43,65 +43,51 @@ $(document).ready(function() {
         // END: ADD
     });
 
+		// click to close the modal
+		$(".modal-container, .modal a.close").on("click", function(e) {
+				e.preventDefault();
+				confirm("Are you sure you want to quit the process?");
+				$("body").addClass("closing");
+
+				// this event happens when a transition-event on this element ends.
+				// we could use a selector for #site-container or .modal-container as well
+				// - just something we know is going to transition
+				$(".modal-container .modal").one(transEnd, function () {
+
+					$(".steps").removeClass("moving-to-step2 moving-to-step3 moving-to-step4"); //Removes all the "step-classes" when closing the modal.
+						$("body").removeClass("modal-showing closing");
+						$(this).off(transEnd); // JS has no idea if the "end transition" is for when the modal opens or closes so make sure to remove the event-check again after it has run once
+				});
+		});
+		// ... but not when the click is inside the modal
+		$(".modal-container .modal").on("click", function(e) {
+				e.stopPropagation();
+		});
+
+
 		if ($(".steps").hasClass("moving-to-step2")) {
 				$(".nr-one").css("background-color", "#fff89d");
 		}
-		//opens infosida
-		$('.info').on('click', function(){
-		        $('.infosida').toggle();
-		});
 
-		$('.closeinfo').on('click', function(){
-        	$('.infosida').toggle();
-    });
+				//opens infosida
+				$('.info').on('click', function(){
+				        $('.infosida').toggle();
+				});
 
-    // click to close the modal
-    $(".modal-container, .modal a.close").on("click", function(e) {
-        e.preventDefault();
-
-        $("body").addClass("closing");
-
-        // this event happens when a transition-event on this element ends.
-        // we could use a selector for #site-container or .modal-container as well
-        // - just something we know is going to transition
-        $(".modal-container .modal").one(transEnd, function () {
-
-					$(".steps").removeClass("moving-to-step2 moving-to-step3 moving-to-step4"); //Removes all the "step-classes" when closing the modal.
-            $("body").removeClass("modal-showing closing");
-            $(this).off(transEnd); // JS has no idea if the "end transition" is for when the modal opens or closes so make sure to remove the event-check again after it has run once
-        });
-
-    });
-
-    // ... but not when the click is inside the modal
-    $(".modal-container .modal").on("click", function(e) {
-        e.stopPropagation();
-    });
-
+				$('.closeinfo').on('click', function(){
+		        	$('.infosida').toggle();
+		    });
 
 		    // form validation
-
-				$(".step2validate").submit(function(e) {
-						e.preventDefault();
-						var option = $('#selOption');
-		            if (option.val() === '') {
-		                alert("Please select an item from the list and then proceed!");
-		                $('#selBooks').focus();
-		                return false;
-		            }
-		            else{
-									$(".steps").removeClass("moving-to-step2").addClass("moving-to-step3");
-									$(".nr-one").css("background-color", "#26ad8f");
-									$(".nr-two").css("background-color", "#fff89d");
-								}
-				});
 				$(".step3validate").submit(function(e) {
 						e.preventDefault();
 				});
 
+
 // moving to step 3
 
 		    $(".back").click(function(event){
+					event.preventDefault();
 		            $(".steps").removeClass("moving-to-step2").addClass("moving-to-step1");
 								$(".progress-bar").css("display", "none");
 		    });
@@ -119,8 +105,19 @@ $(document).ready(function() {
 
 // moving to step 4
 
-				$(".continue2").click(function(event){
-								$(".steps").removeClass("moving-to-step3").addClass("moving-to-step4");
+				$(".step2validate").submit(function(e) {
+						e.preventDefault();
+						var option = $('#selOption');
+								if (option.val() === '') {
+										alert("Please select an item from the list and then proceed!");
+										$('#selBooks').focus();
+										return false;
+								}
+								else{
+									$(".steps").removeClass("moving-to-step2").addClass("moving-to-step3");
+									$(".nr-one").css("background-color", "#26ad8f");
+									$(".nr-two").css("background-color", "#fff89d");
+								}
 				});
 
 				$(".back2").click(function(event){
@@ -131,14 +128,27 @@ $(document).ready(function() {
 
 // moving to step 5
 
-				$(".continue3").click(function(event){
-								$(".steps").removeClass("moving-to-step4").addClass("moving-to-step5");
+				$(".step5validate").submit(function(e) {
+						e.preventDefault();
+						$(".steps").removeClass("moving-to-step4").addClass("moving-to-step5");
+						$(".nr-three").css("background-color", "#26ad8f");
+						$(".nr-four").css("background-color", "#fff89d");
 				});
 
 				$(".back3").click(function(event){
+					event.preventDefault();
 								$(".steps").removeClass("moving-to-step4").addClass("moving-to-step3");
 								$(".nr-two").css("background-color", "#fff89d");
 								$(".nr-three").css("background-color", "lightgrey");
+				});
+
+// moving to step 6
+
+				$(".toFinish").click(function(event){
+					event.preventDefault();
+								$(".steps").removeClass("moving-to-step5").addClass("moving-to-step6");
+								$(".nr-four").css("background-color", "#26ad8f");
+								$(".nr-five").css("background-color", "#26ad8f");
 				});
 
 
