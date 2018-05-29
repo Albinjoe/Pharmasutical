@@ -29,12 +29,10 @@ $(document).ready(function() {
 
 			});
 
-
-
 			// Good to have for some responsive functionality
 				var WindowWidth = $(window).width();
 
-		    if(WindowWidth > 640) {
+		    if(WindowWidth > 960) {
 		        $('.steps').addClass("moving-to-step2");
 				}else{
 		        $('.steps').removeClass("moving-to-step2");
