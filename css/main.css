@@ -120,6 +120,11 @@ header {
 	padding-top: 25px;
 	font-size: 1em;
 }
+.header-title a{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
 
 .profile-img {
 	position: absolute;
@@ -647,29 +652,12 @@ label.exists .existsmessage {
 					float: left;
 			}
 
-			#hamburger {
-				display: none;
-			}
-
-			.header-title{
-					margin: 0;
-					margin-left: 20px;
-			}
-
 			header{
 				position: relative;
 			}
 
 			.header-form{
 				display: inline;
-			}
-
-			.login-box{
-				display: block;
-				position: absolute;
-				width: 460px;
-				top: 0;
-				right: 0;
 			}
 
 			.label-one{
@@ -704,17 +692,10 @@ label.exists .existsmessage {
 				border: none;
 			}
 
-			.profile-img{
-				display: none;
-			}
-			.magnifying-img{
-				display: none;
-			}
-
 			/*  MODAL  */
 
 			.modal-container .modal {
-				height: 55%;
+				height: 460px;
 				border-radius: 4px;
 			}
 
@@ -788,10 +769,55 @@ label.exists .existsmessage {
 
 }
 
+/*=====================================700PX=====================================*/
+@media (min-width: 700px) {
+
+}
+
+
 /*=====================================960PX=====================================*/
 @media (min-width: 960px) {
+
+			#hamburger {
+				display: none;
+			}
+
 			.image-and-text-container{
 					width:33%;
 					float: left;
+			}
+
+			.header-title{
+					margin-left: 30px;
+			}
+
+			.profile-img{
+				display: none;
+			}
+			.magnifying-img{
+				display: none;
+			}
+
+			.login-box{
+				display: block;
+				position: absolute;
+				width: 460px;
+				top: 0;
+				right: 0;
+			}
+			.main-menu{
+				position: absolute;
+				top: 9px;
+				left: 170px;
+				list-style: none;
+				padding: 0;
+				width: 400px;
+				height: 40px;
+				z-index: 10;
+				opacity: 1;
+				background-color: white;
+			}
+			.main-menu > li{
+					display: inline;
 			}
 }
