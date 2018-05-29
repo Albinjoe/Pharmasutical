@@ -50,7 +50,7 @@ $(document).ready(function() {
     // click to open modal
     $(".open-modal").on("click", function(e) {
         e.preventDefault();
-				if(WindowWidth > 640) {
+				if(WindowWidth > 960) {
 		        $(".progress-bar").css("display", "block");
 				}
 
@@ -129,16 +129,36 @@ $(document).ready(function() {
 				});
 
 // moving to step 4
+				$("#iam").change( function() {
+							var val = $(this).find("option:selected").attr("value");
+							$(".doctors-only").removeClass("show");
+							$(".nurse-only").removeClass("show");
+
+							if ( val == "doctor" ) {
+									$(".doctors-only").addClass("show");
+							} else if (val == "nurse") {
+									$(".nurse-only").addClass("show");
+							}
+				});
 
 				$(".step2validate").submit(function(e) {
 						e.preventDefault();
-						var option = $('#selOption');
-								if (option.val() === '') {
-										alert("Please select an item from the list and then proceed!");
-										$('#selBooks').focus();
-										return false;
-								}
-								else{
+						var option = $('#iam').val();
+						var field = $("#iam");
+
+						var svField = $(".sv-field").val();
+						console.log(svField);
+						field.closest("label").removeClass("error");
+
+								if (option === null) {
+
+											field.closest("label").addClass("error");
+											return false;
+
+								} else if(svField === ""){
+										$(".sv-field").closest("label").addClass("error");
+								} else {
+
 									$(".steps").removeClass("moving-to-step2").addClass("moving-to-step3");
 									$(".nr-one").css("background-color", "#26ad8f");
 									$(".nr-two").css("background-color", "#fff89d");

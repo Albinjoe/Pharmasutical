@@ -112,10 +112,10 @@
 										</form>
 								</div>
 								<div class="step2">
-									<form class="step2validate">
+									<form class="step2validate" novalidate="novalidate">
 											<label class="select">
 													Choose your occupation
-													<select name="Something" id="iam selOption" required="required">
+													<select name="Something" id="iam" required="required">
 															<option value="" disabled selected="selected">Select occupation</option>
 															<option value="doctor">Doctor (senior specialist)</option>
 															<option value="nurse">Nurse</option>
@@ -123,37 +123,51 @@
 															<option value="medical-sec">Medical secretary</option>
 													</select>
 													<div class="errormessage">
-															You need to tell us what you are
+															Please select your occupation
 													</div>
 											</label>
-											<a href="#" class="info"><div>&#9432;</div></a>
-											<button class="back">back</button>
-											<input type="submit" value="continue" class="continue" />
+											<div class="doctors-only">
+													<label>
+															SV-number
+															<input type="text" class="sv-field" required="required" />
+															<div class="errormessage">
+																	Please enter your SV-number
+															</div>
+													</label>
+											</div>
+											<div class="nurse-only">
+													<label>
+															City
+															<input type="text" class="" required="required" />
+															<div class="errormessage">
+																	Please enter your city
+															</div>
+													</label>
+													<label>
+															Workplace
+															<input type="text" class="" required="required" />
+															<div class="errormessage">
+																	Please enter your workplace
+															</div>
+													</label>
+											</div>
+											<div class="some-buttons">
+													<a href="#" class="info"><div>&#9432;</div></a>
+													<button class="back">back</button>
+													<input type="submit" value="continue" class="continue" />
+											</div>
 									</form>
 										<div class="infosida">
 												<div class="meddelande">
 														<h2>Information</h2>
-														<p> sdnfslj sdkfs djkfjg sigjsigj sjfgn fdg gshgj</p>
+														<p>We need this information in order to do bla bla..</p>
 														<a href="#" class="closeinfo"><div>Okej I got it!</div></a>
 												</div>
 										</div>
 								</div>
 
-										<!--<div class="students-only">
-											<label>
-												Name of school
-												<input type="text" name="School" tabindex="-1" />
-											</label>
-											<label>
-												Which course is this for?
-												<input type="text" name="For" tabindex="-1" />
-										</label>
-
-											<a href="http://www.google.se" tabindex="-1" class="read-more">Read more about our courses</a>
-								</div> -->
-
 								<div class="step3">
-									<p>Validation, step 3 </p>
+									<p>Validation</p>
 									<form class="step3validate" novalidate="novalidate">
 										<label>
 											First name
@@ -185,7 +199,7 @@
 										<div class="loadsida">
 											<div class="gif">
 												<h2>LOADING..</h2>
-												<img src="img/load.gif" width="200px">
+												<img src="img/load.gif"/>
 												<br>
 												<a href="#" class="closeload"><div>Okej I got it!</div></a>
 											</div>

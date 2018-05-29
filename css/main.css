@@ -197,19 +197,10 @@ body.modal-showing {
 }
 
 #site-container {
-
 	margin: 0 auto;
-
-
-	/* The filter for blur HAS TO be
-	1. on an element that the modal is not inside or the modal will blur too and
-	2. it has to be on an element which contains all the content we want to blur*/
-
 	filter: blur(0px);
 	transition: filter 0.2s ease-out;
 	-webkit-transition: -webkit-filter 0.2s ease-out;
-
-	/* Try to tell the browser that this needs to be handled seperately by the GPU */
 	will-change: filter;
 	transform: translateZ(0);
 }
@@ -263,7 +254,6 @@ body.modal-showing {
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.2s ease-out;
-	/* Try to tell the browser that this needs to be handled seperately by the GPU */
 	will-change: opacity;
 	transform: translateZ(0);
 }
@@ -284,30 +274,25 @@ body.modal-showing {
 	position: absolute;
 	top: 45%;
 	left:50%;
-
 	box-shadow: 0 22px 55px rgba(0,0,0,0.5);
-
 	transition: top 0.2s ease-out, transform 0.2s ease-out;
-	transform: translate(-50%, -50%) /* trick for correct positioning */
-			   translateZ(0) /* Getting the GPU to handle it - the old way */
-		   	   scale(0.9) /* zoomed out at the start */
-		   	   rotateX(60deg); /* add a little rotation */
-
-	/* Getting the GPU to handle it - the NEW way */
+	transform: 	translate(-50%, -50%)
+			   			translateZ(0)
+		   	   		scale(0.9)
+		   	   		rotateX(60deg);
 	will-change: top, transform;
 }
 	body.modal-showing .modal-container .modal {
 		top: 50%;
-		transform: translate(-50%, -50%) /* keep trick for correct positioning */
-				   translateZ(0) /* Getting the GPU to handle it - the old way */
-				   scale(1) /* zoom in to scale 1:1 */
-		   	   	   rotateX(0);
+		transform: 	translate(-50%, -50%)
+				   			translateZ(0)
+				   			scale(1)
+		   	   	   	rotateX(0);
 	}
 	body.modal-showing.closing .modal-container .modal {
-		transform: translate(-50%, -50%) /* trick for correct positioning */
-		 		   translateZ(0) /* Getting the GPU to handle it - the old way */
-			   	   scale(0.9); /* zoomed out at the start */
-			   	   /*rotateX(60deg);*/
+		transform: 	translate(-50%, -50%)
+		 		   			translateZ(0)
+			   	   		scale(0.9);
 	}
 
 	/*------------ Progress bar below -------------*/
@@ -373,10 +358,41 @@ body.modal-showing {
 		float: left;
 		width: 200px;
 		position: relative;
+		height: 320px;
+	}
+
+	.doctors-only{
+		max-height:0px;
+		transition: max-height 0.2s ease-out;
+		overflow: hidden;
+		margin-top: 10px;
+	}
+
+	.doctors-only.show{
+		max-height: 83px;
+	}
+
+
+	.nurse-only{
+		max-height:0px;
+		transition: max-height 0.2s ease-out;
+		overflow: hidden;
+		margin-top: 10px;
+	}
+
+	.nurse-only.show{
+		max-height: 145px;
+	}
+
+	.some-buttons{
+		position: absolute;
+		bottom: 0;
+		display: block;
+		width: 100%;
 	}
 
 	.info {
-		margin-right: 10px;
+		margin-left: 2px;
 		text-decoration: none;
 		float: left;
 		color: black;
@@ -432,7 +448,6 @@ body.modal-showing {
 		display: inline;
 	}
 	.continue {
-		margin-right: 10px;
 		text-decoration: none;
 		float: right;
 		color: black;
@@ -564,6 +579,7 @@ a.button {
 	line-height: normal;
 	text-transform: uppercase;
 	border-radius: 35px;
+	cursor: pointer;
 }
 button {
 	background: #000;
@@ -575,6 +591,7 @@ button {
 	line-height: normal;
 	text-transform: uppercase;
 	border-radius: 35px;
+	cursor: pointer;
 }
 
 button.back, button.back2 {
@@ -583,7 +600,14 @@ button.back, button.back2 {
 	background-color: white !important;
 	border: 1px solid #26ad8f;
 	color: black;
+	outline:0;
+	cursor:pointer;
 }
+
+button.back:hover, button.back2:hover {
+	background-color: #26ad8f !important;
+}
+
 .startload{
 	float: right;
 }
@@ -591,28 +615,6 @@ input[type='submit'].secondary-button,
 a.button.secondary-button {
 	padding: 9px 10px;
 	float: right;
-}
-
-
-
-/* Student specific fields */
-.students-only {
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height 0.2s ease-out;
-	padding: 6px;
-	margin: -6px;
-}
-.students-only .read-more {
-	font-size: 13px;
-	display: block;
-	margin-top: 6px;
-}
-.students-only.show {
-	max-height: 220px;
-}
-.students-only label:first-child {
-	margin-top: 18px;
 }
 
 /* Error messges */
@@ -632,7 +634,6 @@ label.not-exist:after {
 	height: 18px;
 	background: url('../img/error-icon.png') no-repeat center center;
 	background-size: 18px;
-
 	position: absolute;
 	right: 11px;
 	top: 33px;
@@ -648,7 +649,6 @@ label.not-exist:after {
 	line-height: 22px;
 	font-size: 13px;
 	font-weight: 500;
-
 	overflow: hidden;
 	max-height: 0;
 	transition: max-height 0.2s ease-out;
@@ -714,9 +714,8 @@ label.exists .existsmessage {
 			}
 
 			/*  STEPS   */
-
-			.profile {
-				display: none;
+			.profile{
+				margin: 20px 0 30px 0;
 			}
 
 			.step {
@@ -763,6 +762,10 @@ label.exists .existsmessage {
 
 			div.loadsida {
 				left: -200px;
+			}
+
+			.gif img{
+				width: 220px;
 			}
 
 			/*  LABELS  */
