@@ -109,6 +109,20 @@ header {
 	transform: rotate(180deg);
 }
 
+.main-menu-first{
+	position: absolute;
+	top: 54px;
+	left: 0;
+	background-color: lightgrey;
+	list-style: none;
+	padding: 0;
+	width:0vw;
+	height: 100vh;
+	z-index: 10;
+	transition: opacity 0.3s ease-out, width 0.2s ease-out;
+	overflow: hidden;
+	opacity: 0;
+}
 
 
 /*--------------------------*/
@@ -807,17 +821,73 @@ label.exists .existsmessage {
 			}
 			.main-menu{
 				position: absolute;
-				top: 9px;
-				left: 170px;
+				top: -22px;
+				right: 0px;
+				left: inherit;
 				list-style: none;
 				padding: 0;
-				width: 400px;
+				width: 700px;
 				height: 40px;
 				z-index: 10;
 				opacity: 1;
 				background-color: white;
+				overflow: visible;
 			}
-			.main-menu > li{
+			.main-menu>li {
 					display: inline;
+					padding: 26px 10px;
 			}
+			.main-menu>li:hover {
+					background-color: lightgrey;
+			}
+
+			.main-menu>li:last-child:hover {
+					background-color: white;
+			}
+			.main-menu li + li {
+					border-top: 0px;
+			}
+			div.arrow{
+				display: none;
+			}
+			ul.sub-menu{
+				height: 0px;
+				width: 150px;
+				z-index: 10;
+				background-color: grey;
+				position: absolute;
+				left: 0px;
+				top: 71px;
+				margin: 0;
+				padding: 0;
+			}
+
+			ul.sub-menu li{
+				display: block;
+				padding: 15px;
+			}
+
+			.edu-item:hover .sub-menu{
+					height: 320px;
+			}
+
+			.main-menu-first{
+				list-style: none;
+				position: absolute;
+				top: 10px;
+				right: 500px;
+				opacity: 1;
+			    left: inherit;
+			    background-color: inherit;
+			    padding: inherit;
+			    width: inherit;
+			    height: 40px;
+			    z-index: inherit;
+			    overflow: inherit;
+			}
+			.main-menu-first li {
+				display: inline;
+				padding: 15px;
+			}
+
 }

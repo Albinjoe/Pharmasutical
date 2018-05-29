@@ -10,9 +10,13 @@ $(document).ready(function() {
 					$(this).toggleClass("close-symbol");
 
 					if($("#hamburger").hasClass("close-symbol")){
+							$(".main-menu-first").css("width", "70vw");
+							$(".main-menu-first").css("opacity", "1");
 							$(".main-menu").css("width", "70vw");
 							$(".main-menu").css("opacity", "1");
 					}else{
+							$(".main-menu-first").css("width", "0vw");
+							$(".main-menu-first").css("opacity", "0");
 							$(".main-menu").css("width", "0vw");
 							$(".main-menu").css("opacity", "0");
 					}
