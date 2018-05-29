@@ -1,8 +1,31 @@
 // just save all these different events in a string variable
 var transEnd = "transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd";
 
-
 $(document).ready(function() {
+
+			//The hamburger Menu
+
+			$("#hamburger").click(function(){
+
+					$(this).toggleClass("close-symbol");
+
+					if($("#hamburger").hasClass("close-symbol")){
+							$(".main-menu").css("width", "70vw");
+							$(".main-menu").css("opacity", "1");
+					}else{
+							$(".main-menu").css("width", "0vw");
+							$(".main-menu").css("opacity", "0");
+					}
+			});
+
+			$(".arrow").click(function(){
+
+					$(this).toggleClass("rotated-arrow");
+					$(".sub-menu").toggleClass("expand-sub-menu");
+
+			});
+
+
 
 			// Good to have for some responsive functionality
 				var WindowWidth = $(window).width();
