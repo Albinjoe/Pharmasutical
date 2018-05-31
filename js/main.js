@@ -117,10 +117,6 @@ $(document).ready(function() {
 								$(".progress-bar").css("display", "none");
 		    });
 
-				$('.startload').on('click', function(){
-						    $('.loadsida').toggle();
-				});
-
 				$('.closeload').on('click', function(){
 				        $('.loadsida').toggle();
 								$(".steps").removeClass("moving-to-step3").addClass("moving-to-step4");
@@ -131,13 +127,13 @@ $(document).ready(function() {
 // moving to step 4
 				$("#iam").change( function() {
 							var val = $(this).find("option:selected").attr("value");
-							$(".doctors-only").removeClass("show");
-							$(".nurse-only").removeClass("show");
+							$(".step3validate-second").removeClass("show");
+							$(".step3validate").removeClass("show");
 
-							if ( val == "doctor" ) {
-									$(".doctors-only").addClass("show");
-							} else if (val == "nurse") {
-									$(".nurse-only").addClass("show");
+							if ( val == "nurse" ) {
+									$(".step3validate-second").addClass("show");
+							} else if( val == "doctor" ){
+								$(".step3validate").addClass("show");
 							}
 				});
 
@@ -146,8 +142,6 @@ $(document).ready(function() {
 						var option = $('#iam').val();
 						var field = $("#iam");
 
-						var svField = $(".sv-field").val();
-						console.log(svField);
 						field.closest("label").removeClass("error");
 
 								if (option === null) {
@@ -155,8 +149,6 @@ $(document).ready(function() {
 											field.closest("label").addClass("error");
 											return false;
 
-								} else if(svField === ""){
-										$(".sv-field").closest("label").addClass("error");
 								} else {
 
 									$(".steps").removeClass("moving-to-step2").addClass("moving-to-step3");
@@ -166,14 +158,125 @@ $(document).ready(function() {
 				});
 
 				$(".back2").click(function(event){
+					event.preventDefault();
 								$(".steps").removeClass("moving-to-step3").addClass("moving-to-step2");
 								$(".nr-one").css("background-color", "#fff89d");
 								$(".nr-two").css("background-color", "lightgrey");
 				});
 
+
+				$(".step3validate").submit(function(e) {
+
+		        e.preventDefault();
+
+		                var field = $(this);
+
+		                var fields = $(this).find("*[required]");
+		                var validated = true;
+		                fields.each(function() {
+		                  var field = $(this);
+		                  if ( !validateField( field ) ) { validated = false; }
+		                });
+
+		                if ( validated ) {
+
+												var firstFieldValue = $("#firstname").val();
+					              var lastFieldValue = $("#lastname").val();
+												var svFieldValue = $("#svnumber").val();
+												console.log(firstFieldValue);
+												console.log(lastFieldValue);
+												console.log(svFieldValue);
+
+		                    $.ajax({
+		                      url: "js/users.json",
+		                      dataType: "json"
+		                    })
+
+		                    .done(function( data ) {
+
+		                        var field = $(this).find("*[required]");
+		                            var found = false;
+		                            for (i = 0; i < data.length; i++) {
+		                                var fromFile1 = data[i].firstName;
+																		var fromFile2 = data[i].lastName;
+																		var fromFile3 = data[i].svnumber;
+
+		                                if ( fromFile1 == firstFieldValue && fromFile2 == lastFieldValue && fromFile3 == svFieldValue) {
+
+		                                  found = true;
+		                                }
+		                            }
+		                        if( found ) {
+															alert("YES!!!");
+
+		                        }
+
+		                        if ( !found ) {
+		                         	alert("NO!!!");
+		                        }
+		                    });
+													$('.loadsida').toggle();
+		                }
+		    });
+
+				$(".step3validate-second").submit(function(e) {
+
+		        e.preventDefault();
+
+		                var field = $(this);
+
+		                var fields = $(this).find("*[required]");
+		                var validated = true;
+		                fields.each(function() {
+		                  var field = $(this);
+		                  if ( !validateField( field ) ) { validated = false; }
+		                });
+
+		                if ( validated ) {
+
+												$('.loadsida').toggle();
+
+		                    var myFieldValue = $("#forgot").val();
+
+		                    $.ajax({
+		                      url: "js/users.json",
+		                      dataType: "json"
+		                    })
+
+		                    .done(function( data ) {
+
+		                        var field = $(this).find("*[required]");
+		                            var found = false;
+		                            for (i = 0; i < data.length; i++) {
+		                                var fromFile = data[i].username;
+
+		                                if ( fromFile == myFieldValue) {
+
+		                                  found = true;
+		                                }
+		                            }
+		                        if( found ) {
+		                          $(".first-message").addClass("hide");
+		                          $(".second-message").addClass("show");
+		                        }
+
+		                        if ( !found ) {
+		                          $(".first-message").addClass("hide");
+		                          $(".third-message").addClass("show");
+		                        }
+		                    });
+
+		                }
+		    });
+									// $(".steps").removeClass("moving-to-step2").addClass("moving-to-step3");
+									// $(".nr-one").css("background-color", "#26ad8f");
+									// $(".nr-two").css("background-color", "#fff89d");
+
+
 // moving to step 5
 
 				$(".step5validate").submit(function(e) {
+
 						e.preventDefault();
 						$(".steps").removeClass("moving-to-step4").addClass("moving-to-step5");
 						$(".nr-three").css("background-color", "#26ad8f");
@@ -253,35 +356,28 @@ $(document).ready(function() {
 });
 
 
-function validateField( field ) {
+function validateField(field){
 
-    // remove error messages from eventual earlier validation attempts
     field.closest("label").removeClass("error");
 
-    // save/set some values
     var type = field.attr("type");
     var val = field.val();
     var valid = true;
 
-    // is it a <select>?
     if ( field.is('select') ) {
         val = field.find("option:selected").attr("value");
         if (val == undefined || val == null || val == "") {
             valid = false;
         }
 
-    // is it a normal text field?
     } else if ( type == "text" && (val == undefined || val == null || val == "") ) {
         valid = false;
 
-    // is is an email field?
     } else if ( type == "email" && !validateEmail(val) ) {
         valid = false;
     }
 
-    // was the field validated?
     if ( !valid ) {
-        // no - add the error-appareance
         field.closest("label").addClass("error");
     }
 
@@ -289,8 +385,7 @@ function validateField( field ) {
 }
 
 
-// function to check if email has correct syntax (using regex)
-function validateEmail(email) {
+function validateEmail(email){
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
