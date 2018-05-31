@@ -278,8 +278,8 @@ body.modal-showing {
 	transition: top 0.2s ease-out, transform 0.2s ease-out;
 	transform: 	translate(-50%, -50%)
 			   			translateZ(0)
-		   	   		scale(0.9)
-		   	   		rotateX(60deg);
+		   	   		scale(0.95)
+		   	   		rotateX(40deg);
 	will-change: top, transform;
 }
 	body.modal-showing .modal-container .modal {
