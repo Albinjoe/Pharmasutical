@@ -183,9 +183,6 @@ $(document).ready(function() {
 												var firstFieldValue = $("#firstname").val();
 					              var lastFieldValue = $("#lastname").val();
 												var svFieldValue = $("#svnumber").val();
-												console.log(firstFieldValue);
-												console.log(lastFieldValue);
-												console.log(svFieldValue);
 
 		                    $.ajax({
 		                      url: "js/users.json",
@@ -214,7 +211,8 @@ $(document).ready(function() {
 																			$(".steps").removeClass("moving-to-step3").addClass("moving-to-step4");
 																			$(".nr-two").css("background-color", "#26ad8f");
 																			$(".nr-three").css("background-color", "#fff89d");
-
+																			$(".step5").show();
+																			$(".step5-error").hide();
 																	}, 1500);
 
 																	setTimeout(function(){
@@ -223,12 +221,28 @@ $(document).ready(function() {
 		                        }
 
 		                        if ( !found ) {
+															$('.loadsida').show();
+															setTimeout(function(){
 
+																	$(".steps").removeClass("moving-to-step3").addClass("moving-to-step4");
+																	$(".nr-two").css("background-color", "#26ad8f");
+																	$(".nr-three").css("background-color", "red");
+																	$(".steps").removeClass("moving-to-step3");
+																	$(".step5").hide();
+																	$(".step5-error").show();
+
+															}, 1500);
+
+															setTimeout(function(){
+																		$('.loadsida').hide();
+															}, 2000);
 		                        }
 		                    });//DONE
 
 		                }//IF VALIDATED
 		    });//SUBMIT
+
+
 
 				$(".step3validate-second").submit(function(e) {
 
@@ -245,9 +259,10 @@ $(document).ready(function() {
 
 		                if ( validated ) {
 
-
-
-		                    var myFieldValue = $("#forgot").val();
+												var firstFieldValue = $("#firstname2").val();
+					              var lastFieldValue = $("#lastname2").val();
+												var cityFieldValue = $("#city").val();
+												var workFieldValue = $("#work").val();
 
 		                    $.ajax({
 		                      url: "js/users.json",
@@ -259,29 +274,56 @@ $(document).ready(function() {
 		                        var field = $(this).find("*[required]");
 		                            var found = false;
 		                            for (i = 0; i < data.length; i++) {
-		                                var fromFile = data[i].username;
+		                                var fromFile1 = data[i].firstName;
+																		var fromFile2 = data[i].lastName;
+																		var fromFile3 = data[i].city;
+																		var fromFile4 = data[i].workplace;
 
-		                                if ( fromFile == myFieldValue) {
+		                                if ( fromFile1 == firstFieldValue && fromFile2 == lastFieldValue && fromFile3 == cityFieldValue && fromFile4 == workFieldValue) {
 
 		                                  found = true;
 		                                }
 		                            }
 		                        if( found ) {
-		                          $(".first-message").addClass("hide");
-		                          $(".second-message").addClass("show");
+
+																	$('.loadsida').show();
+																	setTimeout(function(){
+
+																			$(".steps").removeClass("moving-to-step3").addClass("moving-to-step4");
+																			$(".nr-two").css("background-color", "#26ad8f");
+																			$(".nr-three").css("background-color", "#fff89d");
+																			$(".step5").show();
+																			$(".step5-error").hide();
+																	}, 1500);
+
+																	setTimeout(function(){
+																				$('.loadsida').hide();
+																	}, 2000);
 		                        }
 
 		                        if ( !found ) {
-		                          $(".first-message").addClass("hide");
-		                          $(".third-message").addClass("show");
-		                        }
-		                    });
+															$('.loadsida').show();
+															setTimeout(function(){
 
-		                }
-		    });
-									// $(".steps").removeClass("moving-to-step2").addClass("moving-to-step3");
-									// $(".nr-one").css("background-color", "#26ad8f");
-									// $(".nr-two").css("background-color", "#fff89d");
+																	$(".steps").removeClass("moving-to-step3").addClass("moving-to-step4");
+																	$(".nr-two").css("background-color", "#26ad8f");
+																	$(".nr-three").css("background-color", "lightred");
+																	$(".steps").removeClass("moving-to-step3");
+																	$(".step5").hide();
+																	$(".step5-error").show();
+
+															}, 1500);
+
+															setTimeout(function(){
+																		$('.loadsida').hide();
+															}, 2000);
+		                        }
+		                    });//DONE
+
+		                }//IF VALIDATED
+		    });//SUBMIT
+
+
 
 
 // moving to step 5

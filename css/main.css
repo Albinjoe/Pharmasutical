@@ -374,9 +374,9 @@ body.modal-showing {
 	.step3validate-second{
 		position: absolute;
     top: 40px;
-    left: 10px;
+    left: 0px;
     display: none;
-    width: 380px;
+    width: 200px;
 	}
 
 	.some-buttons{
@@ -790,6 +790,10 @@ label.exists .existsmessage {
 				width: 400px;
 				position: absolute;
 				left: 800px;
+			}
+
+			.step3validate-second{
+		    width: 380px;
 			}
 
 			.step4 {
