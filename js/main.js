@@ -207,17 +207,28 @@ $(document).ready(function() {
 		                                }
 		                            }
 		                        if( found ) {
-															alert("YES!!!");
 
+																	$('.loadsida').show();
+																	setTimeout(function(){
+
+																			$(".steps").removeClass("moving-to-step3").addClass("moving-to-step4");
+																			$(".nr-two").css("background-color", "#26ad8f");
+																			$(".nr-three").css("background-color", "#fff89d");
+
+																	}, 1500);
+
+																	setTimeout(function(){
+																				$('.loadsida').hide();
+																	}, 2000);
 		                        }
 
 		                        if ( !found ) {
-		                         	alert("NO!!!");
+
 		                        }
-		                    });
-													$('.loadsida').toggle();
-		                }
-		    });
+		                    });//DONE
+
+		                }//IF VALIDATED
+		    });//SUBMIT
 
 				$(".step3validate-second").submit(function(e) {
 
@@ -234,7 +245,7 @@ $(document).ready(function() {
 
 		                if ( validated ) {
 
-												$('.loadsida').toggle();
+
 
 		                    var myFieldValue = $("#forgot").val();
 
