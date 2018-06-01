@@ -29,7 +29,6 @@ $(document).ready(function() {
 
 			});
 
-			// Good to have for some responsive functionality
 				var WindowWidth = $(window).width();
 
 		    if(WindowWidth > 960) {
@@ -47,48 +46,46 @@ $(document).ready(function() {
 			$(".nr-one").css("background-color", "#fff89d");
 		});
 
-    // click to open modal
+
     $(".open-modal").on("click", function(e) {
         e.preventDefault();
 				if(WindowWidth > 960) {
 		        $(".progress-bar").css("display", "block");
 				}
 
-        // add lass to <body> = starting animations of modal opening
         $("body").addClass("modal-showing");
 
-        // START: ADD
-        // wait to the animation of the modal opening to finish, then focus on something in the modal
         $(".modal-container .modal").one(transEnd, function () {
 
-            // get the first input-field or link, and put focus on it
             $(this).find("input, a").eq(0).trigger("focus");
             $(this).off(transEnd);
         });
-        // END: ADD
+
     });
 
-		// click to close the modal
+
 		$(".modal-container, .modal a.close").on("click", function(e) {
 				e.preventDefault();
-				confirm("Are you sure you want to quit the process?");
-				$("body").addClass("closing");
 
-				// this event happens when a transition-event on this element ends.
-				// we could use a selector for #site-container or .modal-container as well
-				// - just something we know is going to transition
-				$(".modal-container .modal").one(transEnd, function () {
 
-					$(".steps").removeClass("moving-to-step2 moving-to-step3 moving-to-step4"); //Removes all the "step-classes" when closing the modal.
+				if (confirm("Are you sure you want to quit the process?")){
+						$("body").addClass("closing");
+				 		$(".modal-container .modal").one(transEnd, function () {
+
+					 	$(".steps").removeClass("moving-to-step2 moving-to-step3 moving-to-step4");
 						$("body").removeClass("modal-showing closing");
-						$(this).off(transEnd); // JS has no idea if the "end transition" is for when the modal opens or closes so make sure to remove the event-check again after it has run once
-				});
+						$(this).off(transEnd);
+				 });
+
+				}else{
+				   e.preventDefault();
+				}
+
 		});
-		// ... but not when the click is inside the modal
+
 		$(".modal-container .modal").on("click", function(e) {
 				e.stopPropagation();
 		});
-
 
 		if ($(".steps").hasClass("moving-to-step2")) {
 				$(".nr-one").css("background-color", "#fff89d");
@@ -125,6 +122,7 @@ $(document).ready(function() {
 				});
 
 // moving to step 4
+
 				$("#iam").change( function() {
 							var val = $(this).find("option:selected").attr("value");
 							$(".step3validate-second").removeClass("show");
@@ -324,8 +322,6 @@ $(document).ready(function() {
 		    });//SUBMIT
 
 
-
-
 // moving to step 5
 
 				$(".step5validate").submit(function(e) {
@@ -358,11 +354,8 @@ $(document).ready(function() {
 														$(".wrong-password").addClass("show");
 												}
 
-
-
 										};
 					});
-
 
 
 				$(".back3").click(function(event){
@@ -382,21 +375,15 @@ $(document).ready(function() {
 				});
 
 
-
-
-
-    // Validate fields on BLUR IF they showed an error the first time (when trying to submit)
     $(document.body).on("blur", "label.error input[required]", function(e) {
-        // validate this one TEXT field
         validateField( $(this) );
     });
+
     $(document.body).on("change", "label.error select[required]", function(e) {
-        // validate this one selectbox
         validateField( $(this) );
     });
 
 });
-
 
 function validateField(field){
 
