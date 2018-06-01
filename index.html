@@ -220,21 +220,21 @@
 												<form class="step5validate" novalidate="novalidate">
 														<label>
 																Username (Workemail)
-																<input type="text" name="Username" required="required" />
+																<input type="email" name="Username" required="required" />
 																<div class="errormessage">
-																		Please enter your work email.
+																		Please enter a valid work email.
 																</div>
 														</label>
 														<label>
 																Password
-																<input type="password" name="Password" required="required" />
+																<input type="password" name="Password" required="required" id="password1"/>
 																<div class="errormessage">
 																		Please enter a password.
 																</div>
 														</label>
 														<label>
 																Confirm password
-																<input type="password" name="Password" required="required" />
+																<input type="password" name="Password" required="required" id="password2"/>
 																<div class="errormessage">
 																		Please type the same password as above
 																</div>
@@ -242,6 +242,7 @@
 														<button class="back3" type="button">back</button>
 														<input type="submit" value="continue" />
 												</form>
+												<p class="wrong-password">Make sure the password is the same in both password fields.</p>
 									</div>
 									<div class="step5-error">
 												<p>Sorry! There is no match with the database.</p>

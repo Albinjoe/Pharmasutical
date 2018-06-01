@@ -331,10 +331,39 @@ $(document).ready(function() {
 				$(".step5validate").submit(function(e) {
 
 						e.preventDefault();
-						$(".steps").removeClass("moving-to-step4").addClass("moving-to-step5");
-						$(".nr-three").css("background-color", "#26ad8f");
-						$(".nr-four").css("background-color", "#fff89d");
-				});
+
+									 var field = $(this);
+									 var fields = $(this).find("*[required]");
+									 var validated = true;
+
+									 fields.each(function() {
+										 		var field = $(this);
+
+												if ( !validateField( field ) ) {
+													  validated = false;
+												}
+									 });
+
+									 	if ( validated ) {
+												$(".wrong-password").removeClass("show");
+
+												var FirstPass = $("#password1").val();
+												var SecondPass = $("#password2").val();
+
+												if(FirstPass == SecondPass){
+														$(".steps").removeClass("moving-to-step4").addClass("moving-to-step5");
+														$(".nr-three").css("background-color", "#26ad8f");
+														$(".nr-four").css("background-color", "#fff89d");
+												} else {
+														$(".wrong-password").addClass("show");
+												}
+
+
+
+										};
+					});
+
+
 
 				$(".back3").click(function(event){
 					event.preventDefault();
@@ -366,46 +395,6 @@ $(document).ready(function() {
         validateField( $(this) );
     });
 
-    // check against existing email addresses
-    $("#username").blur(function() {
-        var val = $(this).val();
-        var field = $(this);
-
-        // remove any classes from previous validation
-        field.closest("label").removeClass("error not-exist exists");
-
-        // first, validate as email address - otherwise, no need to check against existing email addresses
-        if ( validateEmail(val) ) {
-
-            // get existing email addresses
-            $.ajax({
-                url: "js/users.json",
-                dataType: "JSON"
-            })
-            .done(function( data ) {
-
-                // ok we got an answer - turn array and given email to lowercase
-                data = data.map(v => v.toLowerCase());
-                val = val.toLowerCase();
-
-                // find the email in the returned array
-                var exists = data.indexOf(val);
-
-                // did the email address exist?
-                if ( exists == -1 ) {
-
-                    // weeey it didn't exist1
-                    field.closest("label").addClass("not-exist");
-                } else {
-
-                    // damn, it was taken!
-                    field.closest("label").addClass("exists");
-                }
-            });
-        } else {
-            field.closest("label").addClass("error");
-        }
-    });
 });
 
 
@@ -427,6 +416,8 @@ function validateField(field){
         valid = false;
 
     } else if ( type == "email" && !validateEmail(val) ) {
+        valid = false;
+    } else if ( type == "password" && (val == undefined || val == null || val == "") ) {
         valid = false;
     }
 

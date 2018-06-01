@@ -471,7 +471,7 @@ body.modal-showing {
     padding: 30px 0px;
     text-align: center;
     margin-top: 22px;
-		height: 320px;
+		height: 330px;
 	}
 	.gif img{
 		width: 200px;
@@ -640,7 +640,7 @@ label.error *[required],
 label.exists #username {
 	background-color: #f5e8e8;
 	-webkit-box-shadow: 0 0 0px 1000px #f5e8e8 inset;
-	border-color: #e30b00;
+	border-color: #e30b00 !important;
 	color: #e30b00;
 }
 label.exists:after,
@@ -683,7 +683,13 @@ label.exists .existsmessage {
 }
 
 .show{
-	display: block !important;
+		display: block !important;
+}
+
+.wrong-password{
+		color: red;
+		margin-top: 10px;
+		display: none;
 }
 
 
@@ -794,6 +800,7 @@ label.exists .existsmessage {
 
 			.step3validate-second{
 		    width: 380px;
+				margin-left: 10px;
 			}
 
 			.step4 {
